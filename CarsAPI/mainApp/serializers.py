@@ -22,6 +22,9 @@ class ModelCarSerializer(serializers.ModelSerializer):
     country = CountriesSerializer()
     brand = CarBrandSerializer()
 
+    def create(self, validated_data):
+        model = ModelCarModel()
+
     class Meta:
         model = ModelCarModel
         fields = ('id', 'car_model', 'description','brand', 'image','country')
