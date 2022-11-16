@@ -41,12 +41,22 @@ INSTALLED_APPS = [
     
     'rest_framework',
     'BaseApp',
+    'UsersApp',
     'drf_yasg', # Swagger
     
     # token
     'rest_framework_simplejwt', 
     'rest_framework_simplejwt.token_blacklist',
 ]
+
+REST_FRAMEWORK = {
+        'DEFAULT_PERMISSION_CLASSES':('rest_framework.permissions.IsAuthenticated','rest_framework.permissions.IsAdminUser'),
+        'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication', # SimpleJWT Auth
+    )
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -132,12 +142,6 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Conf SimpleJWT
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
-}
-
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=90),
