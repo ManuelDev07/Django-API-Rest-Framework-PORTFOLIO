@@ -1,6 +1,8 @@
 django==4.0
-djangorestframework==3.12
+pillow
 psycopg2==2.9.5
+djangorestframework==3.12
 drf-yasg
 PyJWT==2.6.0
 djangorestframework-simplejwt
+python-decouple==3.6
