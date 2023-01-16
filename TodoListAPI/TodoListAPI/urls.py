@@ -61,4 +61,7 @@ urlpatterns = [
 
     # APIViews BaseApp
     path('todo-list/', include('BaseApp.urls')),
+
+    #URLs AuthUserApp
+    path('', include('AuthUsersApp.urls'))
 ]
